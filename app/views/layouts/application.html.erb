@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'https://js.stripe.com/v2/', 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+    <%= display_meta_tags %>
+    <%= render "layouts/ga" %>
+    <%= render "layouts/autopilot" %>
+
+    <!-- <script type="text/javascript" src="https://formshark.herokuapp.com/formshark.js" data-uid="1" data-token="shark" ></script> -->
+
+  </head>
+
+  <body>
+    
+    <% if Rails.env.production? %>
+      <script>ga('send', 'pageview');</script>
+    <% end %>
+
+    <% flash.each do |key, value| %>
+      <div data-alert class="alert-box <%= key %> center" style="margin-bottom: 0px; padding: 15px;">
+        <%= value %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
+
+    <% if controller_name == "players" %>
+      <%= render 'layouts/navdash' %>
+    <% else %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
+    
+    <div class="main">
+      <%= yield %>
+    </div>
+
+    <%= render 'layouts/footer' %>
+
+    <div id="pricing-modal" class="modal fade"></div>
+    <%= render "pages/new" %>
+    <%= render "pages/login" %>
+
+  </body>
+</html>
+
+<script>
+  $(document).ready(function(){
+    setTimeout(function() {
+        $('.alert-box').slideUp('slow', function(){
+        });
+  }, 3000);
+    $('.close').click(function(){
+      $('.alert-box').slideUp('slow', function(){
+      });
+    });
+
+  });
+</script>

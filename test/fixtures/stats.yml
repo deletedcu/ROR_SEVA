@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ppg: 1.5
+  apg: 1.5
+  rpg: 1.5
+  bpg: 1.5
+  spg: 1.5
+  fg: 1
+  winp: 1
+  class: 1
+  year: MyString
+
+two:
+  ppg: 1.5
+  apg: 1.5
+  rpg: 1.5
+  bpg: 1.5
+  spg: 1.5
+  fg: 1
+  winp: 1
+  class: 1
+  year: MyString

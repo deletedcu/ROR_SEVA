@@ -1,0 +1,30 @@
+<div class="container top-l bottom-l">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-block">
+        <h4 class="card-title">LOGIN</h4>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "row"}) do |f| %>
+            <%= devise_error_messages! %>
+              <div class="form-group col-xs-12">
+                <%= f.text_field :email, class: 'form-control sign-up', placeholder: "Email", required: true %>
+              </div>
+              <div class="form-group col-xs-12">
+                <%= f.password_field :password, class: 'form-control sign-up', placeholder: "Password", required: true %>
+              </div>
+              <div class="form-group col-xs-12">
+                <%= f.submit "Log In", class: "btn btn-primary pull-xs-right" %>
+              </div><!-- submit btn -->
+          <% end %>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="pull-xs-right">
+                <%= render "devise/shared/links" %>
+              </div>
+            </div><!-- shared links -->
+          </div>
+        </div><!-- card-block -->
+      </div><!-- card -->
+    </div><!-- col-md-8 -->
+  </div><!-- row -->
+</div><!-- container -->

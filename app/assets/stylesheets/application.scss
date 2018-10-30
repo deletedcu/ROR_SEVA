@@ -1,0 +1,182 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+$brand-success: #8bc34a;
+$brand-primary: #03a9f4;
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,900");
+
+@import "bootstrap";
+@import "navbar";
+@import "footer";
+
+body {
+  overflow-x: hidden;
+}
+
+.center {
+  text-align: center;
+}
+
+.shadow {
+  box-shadow: rgba(23, 43, 99, 0.26) 0 7px 42px;
+}
+
+.btn {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+}
+
+.bg-grey {
+  //width: 100%;
+  //height: 100px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #f5f5f5;
+  border-top: 1px solid #f5f5f5;
+}
+
+.card {
+  box-shadow: rgba(29, 29, 31, 0.15) 0 10px 60px;
+}
+
+.top-l {
+  margin-top: 150px;
+}
+
+.bottom-l {
+  margin-bottom: 150px;
+}
+
+.top {
+  margin-top: 100px;
+}
+
+.top-sm {
+  margin-top: 50px;
+}
+
+.top-xs {
+  margin-top: 15px;
+}
+
+.jumbotron {
+  position: relative;
+  margin-top: 95px;
+  padding: 5rem 1.5rem;
+
+  //background-image: linear-gradient(-179deg, #F8F8F8 0%, #EEEEEE 100%);
+  background: linear-gradient(125deg, #fafafa, #f3f3f3 41%, #ededed 0, #fafafa);
+  border-radius: 0px;
+  margin-bottom: 0px;
+
+  .white {
+    color: #ededed;
+  }
+
+  .dark {
+    color: #37474f;
+  }
+
+  .tilt {
+    position: absolute;
+    bottom: -25px;
+    left: 0px;
+    width: 100%;
+    height: 75px;
+    z-index: 2;
+    transform: skewY(-1.5deg);
+    background-color: #fff;
+  }
+}
+
+.height-lg {
+  min-height: 50vh;
+}
+
+.height-md {
+  min-height: 30vh;
+}
+
+.jumbo-header {
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #37474f;
+}
+
+p {
+  font-weight: 400;
+  color: #37474f;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  flex-flow: row-nowrap;
+  margin-top: 1px solid #eee;
+
+  .score {
+    background-color: $brand-primary;
+    color: #fff;
+    flex: 0;
+    padding: 1.25rem 1.25rem;
+  }
+
+  .name {
+    flex: 1;
+    padding: 1.25rem 1.25rem;
+  }
+
+  .rating {
+    padding: 1.25rem 1.25rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    span {
+      padding: 0 1rem;
+    }
+  }
+}
+
+.card-header {
+  padding: 2.5rem 2.5rem;
+  height: 130px;
+  margin-bottom: 0;
+  background-image: linear-gradient(156deg, #45c7fb, #2196f3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  color: #ededed;
+}
+
+.map {
+  background: image-url("map.png") no-repeat center;
+  background-size: contain;
+  width: 100%;
+}

@@ -1,0 +1,21 @@
+<nav class="navbarTop">
+  <section>
+    <%= link_to "SEVA SCORE", seva_score_path %>
+    <%= link_to "ABOUT US", about_us_path %>
+    <% if user_signed_in? %>
+      <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %>
+      <%= link_to current_user.first_name.upcase, edit_user_registration_path %>
+    <% else %>
+      <%= link_to 'LOG IN', new_user_session_path %>
+      <%= link_to 'SIGN UP', new_user_registration_path %>
+    <% end %>
+  </section>
+</nav>
+
+<nav class="navbar" style="box-shadow: 0 2px 5px rgba(0,0,0,0.26);">
+  <div class="row">
+    <div class="col-xs-6 col-md-4  logo">
+      <%= link_to image_tag('s_font3.png', width: 100), root_path %>
+    </div>
+  </div>
+</nav>

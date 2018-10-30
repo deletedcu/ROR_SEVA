@@ -1,0 +1,264 @@
+<div class="container top-sm bottom-l">
+  <div class="card">
+    <div class="card-block">
+    <div class="row" style="margin-bottom: 15px;">
+      <div class="col-xs-6">
+        <h6 class="float-xs-left"><small><%= @player.impressionist_count(filter: :session_hash) %> VIEWS</small></h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <h1 class="jumbo-header" style="margin-top: -10px;"><span><%= @player.name %></span> <span style="font-size: 1rem;"><%= @player.grad_year %></span></h1>
+        <div><%= height(@player) %> | <%= @player.high_school %>, <%= @player.st %></div>
+        <div><%= @player.style %></div>
+        <span><%= @player.committed_to %></span>
+        <br>
+      </div>
+      <div class="col-md-7 disappear">
+        <div class="float-md-right">
+          <div style="border: 2px solid #212121; padding: 10px;" data-toggle="tooltip" title="SEVA Scores are based off of the player's most recent and available stat year." data-placement="bottom">
+            <% if @player.stats.blank? %>
+              <div class="center">
+              <h2>NA</h2>
+              <p style="font-size: 0.75rem;">SEVA Score</p>
+              </div>
+            <% else %>
+              <div class="center">
+                <h2 style="padding-top: 10px;"><span><%= @player.stats.season_order.first.seva_score.round(3) %></span></h2>
+                <p style="font-size: 0.75rem;">SEVA Score</p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12" style="border-bottom: 1px solid #454545; margin-top: 25px;">
+    </div>
+    <% if @player.rating.present? %>
+      <section class="top-sm">
+        <% if @player.stats.blank? %>
+          <span><small><strong>SEVA Score - NA</strong></small></span>
+          <progress class="progress" value="10" max="100"></progress>
+        <% else %>
+          <span><small><strong>SEVA Score - <%= @player.stats.season_order.first.seva_score.round(3) %></strong></small></span>
+          <progress class="progress" value="<%= @player.stats.season_order.first.seva_score.round(3) %>" max="10"></progress>
+        <% end %>
+        <% if @player.rating.espn > 0 %>
+          <span><small><strong>ESPN - <%= @player.rating.espn %> Stars</strong></small></span>
+          <progress class="progress" value="<%= @player.rating.espn * 20 %>" max="100"></progress>
+        <% else %>
+          <span><small><strong>ESPN - NA</strong></small></span>
+          <progress class="progress" value="10" max="100">No ESPN Rating</progress>
+        <% end %>
+        <% if @player.rating.scout > 0 %>
+          <span><small><strong>Scout - <%= @player.rating.scout %> Stars</strong></small></span>
+          <progress class="progress" value="<%= @player.rating.scout * 20 %>" max="100"></progress>
+        <% else %>
+          <span><small><strong>Scout - NA</strong></small></span>
+         <progress class="progress" value="10" max="100">No Scout Rating</progress>
+        <% end %>
+        <% if @player.rating.rivals > 0 %>
+          <span><small><strong>Rivals - <%= @player.rating.rivals %> Stars</strong></small></span>
+          <progress class="progress" value="<%= @player.rating.rivals * 20 %>" max="100"></progress>
+        <% else %>
+          <span><small><strong>Rivals - NA</strong></small></span>
+          <progress class="progress" value="10" max="100">No Rivals Rating</progress>
+        <% end %>
+      </section>
+     <% end %>
+
+      <% if @player.stats.present? %>
+        <section class="bg-grey top-sm">
+          <div class="row header-stats">
+            <div class="col-md-2 auto-flex-md">
+              <sspan>Year</span>
+            </div>
+            <div class="col-md-2 auto-flex-sm center">
+              <span>GP</span>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <span>PPG</span>
+            </div>
+            <div class="col-md-1  auto-flex-sm center">
+              <span>APG</span>
+            </div>
+            <div class="col-md-1  auto-flex-sm center">
+              <span>RPG</span>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <span>BPG</span>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <span>SPG</span>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <span>FG%</span>
+            </div>
+            <div class="col-md-2 auto-flex-md right">
+              <span>Win%</span>
+            </div>
+          </div>
+
+          <% @player.stats.season_order.each do |s| %>
+          <div class="row player-stats">
+            <div class="col-md-2 auto-flex-md">
+              <%= s.season %>
+            </div>
+            <div class="col-md-2 auto-flex-sm center">
+              <%= s.games_played %>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <%= s.ppg %>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <%= s.apg %>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <%= s.rpg %>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <%= s.bpg %>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <%= s.spg %>
+            </div>
+            <div class="col-md-1 auto-flex-sm center">
+              <%= s.fg %>
+            </div>
+            <div class="col-md-2 auto-flex-md right">
+              <%= s.winp %>
+            </div>
+          </div>
+          <% end %>
+        </section>
+
+      <% if @player.skill.present? && @player.skill.seva_ppg != nil %>
+        <section class="top-sm">  
+            <span><small><strong><%= @player.skill.seva_win %> Winning</strong></small></span>
+            <% if @player.skill.seva_win == 0.0 %>
+            <progress class="progress" value="10"  max="100"></progress>
+            <% else %>
+            <progress class="progress" value="<%= @player.skill.seva_win * 10 %>"  max="100"></progress>
+            <% end %>
+
+            <span><small><strong><%= @player.skill.seva_ppg %> Scoring</strong></small></span>
+            <% if @player.skill.seva_ppg == 0.0 %>
+            <progress class="progress" value="10"  max="100"></progress>
+            <% else %>
+            <progress class="progress" value="<%= @player.skill.seva_ppg* 10 %>"  max="100"></progress>
+            <% end %>
+
+            <span><small><strong><%= @player.skill.seva_apg %> Passing</strong></small></span>
+            <% if @player.skill.seva_apg == 0.0 %>
+            <progress class="progress" value="10"  max="100"></progress>
+            <% else %>
+            <progress class="progress" value="<%= @player.skill.seva_apg * 10 %>"  max="100"></progress>
+            <% end %>
+
+            <span><small><strong><%= @player.skill.seva_rpg %> Rebounding</strong></small></span>
+            <% if @player.skill.seva_rpg == 0.0 %>
+            <progress class="progress" value="10"  max="100"></progress>
+            <% else %>
+            <progress class="progress" value="<%= @player.skill.seva_rpg * 10 %>"  max="100"></progress>
+            <% end %>
+
+            <span><small><strong><%= @player.skill.seva_bpg %> Post D</strong></small></span>
+            <% if @player.skill.seva_bpg == 0.0 %>
+            <progress class="progress" value="10"  max="100"></progress>
+            <% else %>
+            <progress class="progress" value="<%= @player.skill.seva_bpg * 10 %>"  max="100"></progress>
+            <% end %>
+
+
+            <span><small><strong><%= @player.skill.seva_spg %> Perimeter D</strong></small></span>
+            <% if @player.skill.seva_spg == 0.0 %>
+            <progress class="progress" value="10"  max="100"></progress>
+            <% else %>
+            <progress class="progress" value="<%= @player.skill.seva_spg * 10 %>"  max="100"></progress>
+            <% end %>
+
+
+            <span><small><strong><%= @player.skill.seva_fg %> Shooting</strong></small></span>
+            <% if @player.skill.seva_fg == 0.0 %>
+            <progress class="progress" value="10"  max="100"></progress>
+            <% else %>
+            <progress class="progress" value="<%= @player.skill.seva_fg * 10 %>"  max="100"></progress>
+            <% end %>
+          </section>
+
+          <%# if @player.similars.present? %>
+<!--             <section class="section marginTop marginBottom stats">
+              <div class="row header-stats">
+                <div class="col-md-1">
+                  <sspan>Class</span>
+                </div>
+                <div class="col-md-2">
+                  <sspan>Name</span>
+                </div>
+                <div class="col-md-1">
+                  <span>ST</span>
+                </div>
+                <div class="col-md-1 center">
+                  <span>HT</span>
+                </div>
+                <div class="col-md-2">
+                  <span>Season</span>
+                </div>
+                <div class="col-md-1 center">
+                  <span>PPG</span>
+                </div>
+                <div class="col-md-1 center">
+                  <span>APG</span>
+                </div>
+                <div class="col-md-1 center">
+                  <span>RPG</span>
+                </div>
+                <div class="col-md-2 right">
+                  <span>SEVA Score</span>
+                </div>
+              </div> -->
+
+
+<!--               <%# @player.similars.each do |s| %>
+                <%# p = Player.find_by(name: s.similar_name) %>
+                <div class="row player-stats">
+                  <div class="col-md-1">
+                    <%#= p.grad_year %>
+                  </div>
+                  <div class="col-md-2">
+                    <%#= link_to "#{p.name}", player_path(p.slug) %>
+                  </div>
+                  <div class="col-md-1">
+                    <%#= p.grad_year %>
+                  </div>
+                  <div class="col-md-1 center">
+                    <%#= p.stats.season_order.first.ppg %>
+                  </div>
+                  <div class="col-md-2">
+                    <%#= p.stats.season_order.first.season  %>
+                  </div>
+                  <div class="col-md-1 center">
+                    <%#= p.stats.season_order.first.ppg %>
+                  </div>
+                  <div class="col-md-1 center">
+                    <%#= p.stats.season_order.first.apg %>
+                  </div>
+                  <div class="col-md-1 center">
+                    <%#= p.stats.season_order.first.rpg %>
+                  </div>
+                  <div class="col-md-2 right">
+                    <%#= p.stats.season_order.first.seva_score %>
+                  </div>
+                </div>
+              <%# end %> -->
+        <!--     </section> -->
+          <%# end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div id="player-modal" class="modal fade"></div>
+

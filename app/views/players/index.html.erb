@@ -1,0 +1,195 @@
+<div class="container">
+  <% if @players.present? %>
+    <div class="row">
+      <div class="col-md-12 top-sm">
+        <div class="input-group">
+          <input type="text" class="form-control form-control-lg" id="search" placeholder="Search by name...">
+        </div>
+      </div>
+      <div class="col-md-12 top-xs">
+        <div class="btn-group" data-toggle="buttons" style="width: 33%;">
+          <label class="btn btn-outline-primary" style="width: 25%;">
+            <input type="checkbox" autocomplete="off"> 2021
+          </label>
+          <label class="btn btn-outline-primary" style="width: 25%;">
+            <input type="checkbox" autocomplete="off"> 2020
+          </label>
+          <label class="btn btn-outline-primary" style="width: 25%;">
+            <input type="checkbox" autocomplete="off"> 2019
+          </label>
+          <label class="btn btn-outline-primary" style="width: 25%;">
+            <input type="checkbox" autocomplete="off"> 2018
+          </label>
+        </div>
+        <div class="btn-group" data-toggle="buttons" style="width: 33%;">
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> PG
+          </label>
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> SG
+          </label>
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> SF
+          </label>
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> PF
+          </label>
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> C
+          </label>
+        </div>
+        <div class="btn-group" data-toggle="buttons" style="width: 33%;">
+          <label class="btn btn-outline-primary" style="width: 33.33%;">
+            <input type="checkbox" autocomplete="off"> >6'6"
+          </label>
+          <label class="btn btn-outline-primary" style="width: 33.33%;">
+            <input type="checkbox" autocomplete="off"> >6'
+          </label>
+          <label class="btn btn-outline-primary" style="width: 33.33%;">
+            <input type="checkbox" autocomplete="off"> 6'<
+          </label>
+        </div>
+      </div>
+      <div class="col-md-12 top-xs">
+        <div class="btn-group" data-toggle="buttons" style="width: 100%;">
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> WEST
+          </label>
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> MIDWEST
+          </label>
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> SOUTH
+          </label>
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> NORTHEAST
+          </label>
+          <label class="btn btn-outline-primary" style="width: 20%;">
+            <input type="checkbox" autocomplete="off"> EAST
+          </label>
+        </div>
+      </div>
+      <div class="col-md-12 top-xs">
+        <div class="btn-group" data-toggle="buttons" style="width: 100%;">
+          <label class="btn btn-outline-primary" style="width: 13%;">
+            <input type="checkbox" autocomplete="off"> Score
+          </label>
+          <label class="btn btn-outline-primary filters" id="ppg" style="width: 12.5%;">
+            <input type="checkbox" autocomplete="off"> PPG
+          </label>
+          <label class="btn btn-outline-primary filters" id="apg" style="width: 12.5%;">
+            <input type="checkbox" autocomplete="off"> APG
+          </label>
+          <label class="btn btn-outline-primary" style="width: 12.5%;">
+            <input type="checkbox" autocomplete="off"> RPG
+          </label>
+          <label class="btn btn-outline-primary" style="width: 12.5%;">
+            <input type="checkbox" autocomplete="off"> SPG
+          </label>
+          <label class="btn btn-outline-primary" style="width: 12.5%;">
+            <input type="checkbox" autocomplete="off"> BPG
+          </label>
+          <label class="btn btn-outline-primary" style="width: 12.5%;">
+            <input type="checkbox" autocomplete="off"> FG%
+          </label>
+          <label class="btn btn-outline-primary" style="width: 12.5%;">
+            <input type="checkbox" autocomplete="off"> WIN%
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-12 top-sm">
+        <div id="players-table">
+          <%= render "table" %>
+        </div>
+      </div><!-- col -->
+    </div><!-- row -->
+  <%# else %>
+    <%#= render 'shared/submit_player' %>
+  <% end %>
+</div>
+
+
+<%# if current_user_seva_scout? %>
+  <div class="compare-button">
+    <%#= link_to new_player_path, remote: true do %>
+      <i class="material-icons" style="color: white; margin: 12px 12px;">add</i>
+    <%# end %>
+  </div>
+<%# end %>
+
+<div id="player-modal" class="modal fade"></div>
+
+
+<script>
+$(document).on('turbolinks:load', function() {
+  var evenodd = 0;
+   function submitForm(){
+      // var caffeineBtn = document.getElementById("caffeine");
+      var filters = document.getElementById("ppg");
+      var searchBtn = document.getElementById("search");
+      // caffeineBtn.addEventListener('click', function(){
+      //    evenodd++;
+      //    var dir = evenodd % 2 == 0 ? "DESC" : "ASC";
+      //    $("#caffeine").html("Sorting...")
+      //     $.ajax({
+      //     url: "/brandupdate",
+      //     type: "POST",
+      //     data: {
+      //       caffeine: "CAFFEINE",
+      //       direction: dir,
+      //       sugar: "SUGAR"
+      //     },
+      //     success: function(response){
+      //       console.log("it worked :)");
+      //       $("#caffeine").html("SORT BY CAFFEINE")
+      //     },
+      //     error:  function(response){
+      //       console.log('failed!', response);
+      //     }
+      //   });
+      // });
+      searchBtn.addEventListener('keyup', function(){
+         // evenodd++;
+         // var dir = evenodd % 2 == 0 ? "ASC" : "DESC";
+         console.log($("#search").val());
+          $.ajax({
+          url: "/playerupdate",
+          type: "POST",
+          data: {
+            search: $("#search").val()
+          },
+          success: function(response){
+            console.log("it worked :)");
+          },
+          error:  function(response){
+            console.log('failed!', response);
+          }
+        });
+      });
+      filters.addEventListener('click', function(){
+         console.log($("#search").val());
+          $.ajax({
+          url: "/playerupdate",
+          type: "POST",
+          data: {
+            class: 2019,
+            apg: $("#apg").val()
+          },
+          success: function(response){
+            console.log("it worked :)");
+          },
+          error:  function(response){
+            console.log('failed!', response);
+          }
+        });
+      });
+   }
+   submitForm();
+   // var search = document.getElementById('search');
+   // search.addEventListener('keyup', function(){
+   //    var searchParam = "brands?name=" + search.value.replace(/ /g, '+');
+   //    window.history.replaceState(null, null, searchParam);
+   // });
+});
+</script>

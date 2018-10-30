@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seva_win: 1.5
+  seva_ppg: 1.5
+  seva_apg: 1.5
+  seva_rpg: 1.5
+  seva_spg: 1.5
+  seva_bpg: 1.5
+  seva_fg: 1.5
+
+two:
+  seva_win: 1.5
+  seva_ppg: 1.5
+  seva_apg: 1.5
+  seva_rpg: 1.5
+  seva_spg: 1.5
+  seva_bpg: 1.5
+  seva_fg: 1.5

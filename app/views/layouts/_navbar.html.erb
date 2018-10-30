@@ -1,0 +1,33 @@
+<div class="nav-top">
+  <%#= link_to "FAQ", seva_score_path  %>
+  <%#= link_to "About Us", about_path  %>
+  <%= link_to "LOGIN", new_user_session_path %>
+</div>
+<!-- Component -->
+<div class="navbar-component">
+  <!-- Class `area` is a container -->
+  <div class="navbarrr area">
+    <!-- Logo -->
+     <%= link_to image_tag('seva-logo.png', width: "100"), root_path, class: "brand" %>
+
+    <!-- List of links -->
+    <nav role="navigation" id="navigation" class="list">
+      <%= link_to "SEVA Score", seva_score_path, class: "item -link" %>
+      <%= link_to "Pricing",  pricing_path, class: "item -link" %>
+      <div class="cta">
+        <a href="#myModal" class="btn btn-primary button-cta shadow" data-toggle="modal" data-target="#myModal">Sign Up</a>
+      </div>
+    </nav>
+    <!-- Button to toggle the display menu  -->
+    <button id="toggle-sticks" data-collapse data-target="#navigation" class="toggle">
+      <!-- Hamburger icon -->
+      <span class="icon"></span>
+    </button>
+  </div>
+</div>
+
+
+              
+
+
+

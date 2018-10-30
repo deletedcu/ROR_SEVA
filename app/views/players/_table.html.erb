@@ -1,0 +1,37 @@
+ <table class="table">
+  <thead>
+    <tr>
+      <th class="center">SEVA SCORE</th>
+      <th>CLASS</th>
+      <th>NAME</th>
+      <th class="center">ST</th>
+      <th class="center">HT</th>
+      <th class="hide-column">SEASON</th>
+      <th class="center hide-column">PPG</th>
+      <th class="center hide-column">APG</th>
+      <th class="center hide-column">RPG</th>
+      <th class="center hide-column">FG%</th>
+      <th class="center hide-column">WIN%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.stats.season_order.first.seva_score.round(3) %></td>
+        <td> <%= player.grad_year %></td>
+        <td><%= link_to player.name, player_path(player) %></td>
+        <td><%= player.st %></td>
+        <td><%= player.height %></td>
+        <td><%= player.stats.season_order.first.season if player.stats.present? %></td>
+        <td><%= player.stats.season_order.first.ppg %></td>
+        <td><%= player.stats.season_order.first.apg %></td>
+        <td><%= player.stats.season_order.first.ppg %></td>
+        <td><%= player.stats.season_order.first.fg if player.stats.present? %></td>
+        <td><%= player.stats.season_order.first.winp if player.stats.present? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="player" style="margin-top: -15px;">
+  <%= will_paginate @players, inner_window: 2, outer_window: 1, previous_label: "PREV", next_label: "NEXT" %>
+</div>

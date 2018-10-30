@@ -1,0 +1,59 @@
+<div class="full-page">
+  <div class="container marginTopL">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-block">
+          <h4 class="card-title">Edit <%= resource_name.to_s.humanize %></h4>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'row', method: :put }) do |f| %>
+                <%= devise_error_messages! %>
+                <div class="form-group col-xs-6">
+                  <%= f.text_field :first_name, class: 'form-control sign-up', placeholder: "First Name", required: true %>
+                  <%= f.label :first_name %>
+                </div>
+                <div class="form-group col-xs-6">
+                  <%= f.text_field :last_name, class: 'form-control sign-up', placeholder: "Last Name", required: true %>
+                  <%= f.label :last_name %>
+                </div>
+                <div class="form-group col-xs-12">
+                  <%= f.text_field :email, class: 'form-control sign-up', placeholder: "Email", required: true %>
+                  <%= f.label :email %>
+                </div>
+                <div class="col-xs-12" style="margin-top: 25px;">
+                  <h6><small>CHANGE PASSWORD</small></h6>
+                </div>
+                <div class="form-group col-xs-12">
+                  <%= f.password_field :password, class: 'form-control sign-up', placeholder: "Password", required: true %>
+                  <%= f.label :password %>
+                </div>
+                <div class="form-group col-xs-12">
+                  <%= f.password_field :password_confirmation, class: 'form-control sign-up', placeholder: "Password Confirmation", required: true %>
+                  <%= f.label :password_confirmation %>
+                </div>
+                <div class="form-group col-md-12">
+                  <%= f.submit class: "btn btn-primary pull-xs-right" %>
+                </div><!-- submit btn -->
+            <% end %>
+            <div class="row">
+              <div class="col-md-12">
+                <%= render "devise/shared/links" %>
+              </div><!-- shared links -->
+            </div>
+          </div><!-- card-block -->
+        </div><!-- card -->
+      </div><!-- col-md-8 -->
+    </div><!-- row -->
+  </div><!-- container -->
+
+  <div class="container marginBottomL">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-block">
+            <%= link_to "Cancel my account", registration_path(resource_name), class: "pull-xs-right", data: { confirm: "Are you sure?" }, method: :delete %>
+          </div><!-- card-block -->
+        </div><!-- card -->
+      </div><!-- col-md-8 -->
+    </div><!-- row -->
+  </div><!-- container -->
+</div><!-- full-page -->

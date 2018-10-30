@@ -1,0 +1,120 @@
+=<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		    <span aria-hidden="true">&times;</span>
+		  </button>
+		  <h5 class="modal-title">NEW PLAYER</h5>
+		</div>
+		<%= form_for @player, html: {class: 'row modal-body'} do |f| %>
+			
+			<div class="form-group col-xs-12">
+				<%= f.text_field :name, class: 'form-control sign-up', placeholder: "Name", required: true %>
+				<%= f.label :name %>
+			</div>
+
+			<div class="form-group col-xs-4">
+				<%= f.text_field :high_school, class: 'form-control sign-up', placeholder: "High School", required: true %>
+				<%= f.label :high_school %>
+			</div>
+			<div class="form-group col-xs-4">
+				<%= f.text_field :st, class: 'form-control sign-up', placeholder: "ST", required: true %>
+				<%= f.label :st %>
+			</div>
+			<div class="form-group col-xs-4">
+				<%= f.text_field :height, class: 'form-control sign-up', placeholder: "Height", required: true %>
+				<%= f.label :height %>
+			</div>
+			<div class="form-group col-xs-4">
+				<%= f.text_field :grad_year, class: 'form-control sign-up', placeholder: "Grad Year", required: true %>
+				<%= f.label :grad_year %>
+			</div>
+			<div class="form-group col-xs-4">
+				<%= f.text_field :committed_to, class: 'form-control sign-up', required: true %>
+				<%= f.label :committed_to %>
+			</div>
+			<div class="form-group col-xs-4">
+				<%= f.select :school_class, ["i", "ii", "iii", "iv", "b", "p"],class: 'form-control sign-up', required: true %>
+				<%= f.label :school_class %>
+				<%#= f.radio_button :current, class: 'form-control sign-up', required: true %>
+				<%#= f.label :current %>
+			</div>
+
+			<%= f.hidden_field :submitted_by, class: 'sign-up', value:  current_user.id %>
+				
+				<div class="bar col-xs-12">
+				</div>
+
+				<%= f.fields_for :rating, html: {class: "row"} do |r| %>
+					<div class="form-group col-xs-4">
+						<%= r.text_field :espn, class: 'form-control sign-up', placeholder: "ESPN", required: true %>
+						<%= r.label :espn %>
+					</div>
+					<div class="form-group col-xs-4">
+						<%= r.text_field :rivals, class: 'form-control sign-up', placeholder: "Rivals", required: true %>
+						<%= r.label :rivals %>
+					</div>
+					<div class="form-group col-xs-4">
+						<%= r.text_field :scout, class: 'form-control sign-up', placeholder: "Scout", required: true %>
+						<%= r.label :scout %>
+					</div>
+	  		<% end %>
+
+	  		<div class="bar col-xs-12">
+				</div>
+
+	  		<%= f.fields_for :stats, html: {class: "row"} do |s| %>
+	  			<div class="form-group col-xs-6">
+			  		<%= s.text_field :season, class: 'form-control sign-up', placeholder: "Season", required: true %>
+			  		<%= s.label :season %>
+			  	</div>
+			  	<div class="form-group col-xs-6">
+			  		<%= s.text_field :year, class: 'form-control sign-up', placeholder: "Year", required: true %>
+			  		<%= s.label :year %>
+			  	</div>
+			  	<div class="form-group col-xs-3">
+			    	<%= s.text_field :ppg, class: 'form-control sign-up', placeholder: "PPG", required: true %>
+			    	<%= s.label :ppg %>
+			    </div>
+			    <div class="form-group col-xs-3">
+			    	<%= s.text_field :apg, class: 'form-control sign-up', placeholder: "APG", required: true %>
+			    	<%= s.label :apg %>
+			    </div>
+			    <div class="form-group col-xs-3">
+			    	<%= s.text_field :rpg, class: 'form-control sign-up', placeholder: "RPG", required: true %>
+			    	<%= s.label :rpg %>
+			    </div>
+			    <div class="form-group col-xs-3">
+			    	<%= s.text_field :spg, class: 'form-control sign-up', placeholder: "SPG", required: true %>
+			    	<%= s.label :spg %>
+			    </div>
+			    <div class="form-group col-xs-3">
+			    	<%= s.text_field :bpg, class: 'form-control sign-up', placeholder: "BPG", required: true %>
+			    	<%= s.label :bpg %>
+			    </div>
+			    <div class="form-group col-xs-3">
+			    	<%= s.text_field :fg, class: 'form-control sign-up', placeholder: "FG%", required: true %>
+			    	<%= s.label :fg %>
+			    </div>
+			    <div class="form-group col-xs-3">
+			    	<%= s.text_field :winp, class: 'form-control sign-up', placeholder: "Win%", required: true %>
+			    	<%= s.label :winp %>
+			    </div>
+			    <div class="form-group col-xs-3">
+			    	<%= s.text_field :games_played, class: 'form-control sign-up', placeholder: "Games Played", required: true %>
+			    	<%= s.label :games_played %>
+			    </div>
+
+			    <div class="form-group col-xs-12">
+			  		<%= s.radio_button :_destroy, checked_value: true, unchecked_value: false, class: "btn btn-danger btn-sm", data: {confirm: "Are you sure amigo?"} %>
+			  		<%= s.label :_destroy %>
+			  	</div>
+	  	<% end %>
+
+			<div class="modal-footer col-md-12">
+			  <%= f.submit "Create Player", class: "btn btn-primary" %>
+			</div>
+
+		<% end %>
+	</div>
+</div>

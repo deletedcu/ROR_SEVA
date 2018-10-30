@@ -1,0 +1,381 @@
+<div class="jumbotron height-lg flex-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 center">
+      <h1 class="jumbo-header dark">Moneyball for Basketball Recruiting</h1>
+      <h4 class="dark">Access 5,000+ current high school player evaluations</h4>
+      <div class="top-sm">
+        <%= link_to "Get SEVA Now", new_user_registration_path, class: "btn btn-primary btn-lg shadow" %> <span style="margin-left: 10px; margin-right: 10px; color: #37474f;">or</span> <%= link_to 'See a Profile', "#", style: "color: #37474f;", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'  %>
+      </div>
+      </div>
+    </div><!-- row -->
+  </div><!-- container -->
+  <div class="tilt">
+  </div>
+</div><!-- jumbotron -->
+<div class="container">
+  <div class="row top">
+    <div class="col-md-10 offset-md-1">
+      <h5 class="jumbo-header center">Rate and Compare Players using a SEVA Score</h5>
+      <p class="top-xs">SEVA collects statistical data from over 50,000 high school player seasons to accurately project players' college performance. Through a complex algorithm each player is given a statistical evaluation score or  "SEVA Score". SEVA's models more accurately project the success of high school basketball players at the college level by accounting for players' in-game statistics (like points, assists, and rebounds); as well as key player information (like height and team win percentage). Years of research has helped SEVA to identify key indicators and trends that help map players' trajectory from the high school to the college level. <%= link_to "Full methodology »", seva_score_path %></p>
+    </div>
+    <div class="col-md-5 offset-md-1 top-sm">
+      <h5 class="jumbo-header">Search & Filter 5K+ Players</h5>
+      <p class="top-xs">Every coach that signs with SEVA will get access to our growing database of current players. You will be able to search for players by name or filter them by PPG, APG, RPG, SPG, BPG FG%, Win%, State, Height, Class, and SEVA Score. 
+
+      We know every coach is looking for something different. We know your livelihood is based on the success of your student athletes, your next recruiting class could make or break it for you. It is our goal to accommodate the needs of your team and help you find the players you need.
+
+      You need a junior PG who averages at least 8 apg and is shooting over 50%? 
+
+      We believe that by giving coaches the resources and tools of SEVA they will be able to find the players they need to build a winning program.</p>
+    </div>
+    <div class="col-md-5 top-sm">
+      <h5 class="jumbo-header">View & Save Player Profiles</h5>
+      <p class="top-xs">Every player within SEVA has a player profile. Each SEVA profile contains the player’s name, high school, height, graduation year; as well as SEVA Score, all available stats, and skill evaluations. 
+
+      Skill evaluations are similar to a SEVA Score, except we evaluate each player’s skills i.e. Shooting, Passing, Perimeter Defense, etc. based off the associated stats.
+
+      Each player’s stats are compared against thousands of others, and based on that evaluation their skills are given a Score. Skill Scores are based on a 1-10 scale.
+
+      Each evaluation will also show what scholarship offers the player holds as well as their ESPN, Scout, and Rivals ratings if they are available. We do this to give you context on a player against something you are familiar with.</p>
+    </div>
+  </div>
+  <div class="row top">
+    <div class="col-md-10 offset-md-1">
+      <div class="card">
+        <div class="card-block">
+          <%= form_tag(players_path, method: :get, class: "form-inline my-lg-0") do %>
+            <%= text_field_tag 'name', params[:name], class: "form-control mr-sm-2", placeholder: "Search by Name" %>
+          <% end %>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Score</th>
+                <th colspan="2">Name</th>
+                <th>HT</th>
+                <th>YR</th>
+                <th>GP</th>
+                <th>PPG</th>
+                <th>APG</th>
+                <th>RPG</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>8.2</th>
+                <th colspan="2">Steve Day</th>
+                <th>6'6"</th>
+                <th>JR</th>
+                <th>31.7</th>
+                <th>4.5</th>
+                <th>6.2</th>
+                <th>1.3</th>
+              </tr>
+              <tr>
+                <th>6.5</th>
+                <th colspan="2">Jerry Lewis</th>
+                <th>6'3"</th>
+                <th>19.3</th>
+                <th>3.3</th>
+                <th>5.4</th>
+                <th>1.1</th>
+                <th>0.6</th>
+              </tr>
+              <tr>
+                <th>3.7</th>
+                <th colspan="2">Steve Jake</th>
+                <th>6'4"</th>
+                <th>9.8</th>
+                <th>1.2</th>
+                <th>3.2</th>
+                <th>0.2</th>
+                <th>0.3</th>
+              </tr>
+               <tr>
+                <th>8.2</th>
+                <th colspan="2">Terrence Lo</th>
+                <th>6'11"</th>
+                <th>JR</th>
+                <th>31.7</th>
+                <th>4.5</th>
+                <th>6.2</th>
+                <th>1.3</th>
+              </tr>
+              <tr>
+                <th>6.5</th>
+                <th colspan="2">Jared Lukk</th>
+                <th>6'9"</th>
+                <th>19.3</th>
+                <th>3.3</th>
+                <th>5.4</th>
+                <th>1.1</th>
+                <th>0.6</th>
+              </tr>
+              <tr>
+                <th>3.7</th>
+                <th colspan="2">Shane Beteir</th>
+                <th>5'11"</th>
+                <th>9.8</th>
+                <th>1.2</th>
+                <th>3.2</th>
+                <th>0.2</th>
+                <th>0.3</th>
+              </tr>
+               <tr>
+                <th>8.2</th>
+                <th colspan="2">Mike Heck</th>
+                <th>6'6"</th>
+                <th>JR</th>
+                <th>31.7</th>
+                <th>4.5</th>
+                <th>6.2</th>
+                <th>1.3</th>
+              </tr>
+              <tr>
+                <th>6.5</th>
+                <th colspan="2">Chris Scalvo</th>
+                <th>5'9"</th>
+                <th>19.3</th>
+                <th>3.3</th>
+                <th>5.4</th>
+                <th>1.1</th>
+                <th>0.6</th>
+              </tr>
+              <tr>
+                <th>3.7</th>
+                <th colspan="2">Doug Carp</th>
+                <th>6'7"</th>
+                <th>9.8</th>
+                <th>1.2</th>
+                <th>3.2</th>
+                <th>0.2</th>
+                <th>0.3</th>
+              </tr>
+              <tr>
+                <th>3.7</th>
+                <th colspan="2">Bill Snetty</th>
+                <th>6'8"</th>
+                <th>9.8</th>
+                <th>1.2</th>
+                <th>3.2</th>
+                <th>0.2</th>
+                <th>0.3</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  <div class="row top">
+    <div class="col-md-10 offset-md-1 center">
+      <h5 class="jumbo-header">Common Questions</h5>
+    </div>
+
+    <div class="col-md-10 offset-md-1 top-sm">
+      <div id="accordion" role="tablist" aria-multiselectable="true">
+        <div>
+          <div role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h6 class="jumbo-header">
+                What stats do you use to evaluate a player?
+            </h6>
+            <hr>
+          </div>
+
+          <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+            <p>
+              SEVA’s algorithm takes into account Points Per Game (PPG), Assists Per Game (APG), Rebounds Per Game (RPG), Blocks Per Game (BPG), Steals Per Game (SPG), and Field Goal Percentage. 
+              
+              Along with those in-game statistics we use: Winning Percentage, Player height, the state each player competed in, the division within that state that each player competed in, and number of games played.
+            </p>
+          </div>
+        </div>
+        <div>
+          <div role="tab" id="headingTwo" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <h6 class="jumbo-header">
+                How can SEVA evaluate so many players?
+            </h6>
+            <hr>
+          </div>
+          <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <p>
+              SEVA is unique, we let the numbers do the talking. We don’t don’t base our evaluations on game film or even a player's ‘potential’. We allow in-game statistics and physical traits to do that for us. This methodology removes all human bias, and allows us to effectively evaluate thousands of players a year. If we have a player’s stats and physical traits we can evaluate him.
+            <p>
+          </div>
+        </div>
+        <div>
+          <div role="tab" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <h6 class="jumbo-header">
+                How often do you evaluate players?
+            </h6>
+            <hr>
+          </div>
+          <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+            <p>
+              The SEVA Score is dynamic, not static. 
+
+              This is exciting because a player's evaluation is in their hands. If they start the season slow they will grade out low, but they have the power to play better and improve their SEVA Score. 
+
+              With that being said, we don’t evaluate players until they have at least 10 games played in a season. We do this to ensure that there is enough data to make the SEVA Score statistically valid. You will only see significant changes in a SEVA Score for every 10 games worth of data added.
+            </p>
+          </div>
+        </div>
+        <div>
+          <div role="tab" id="headingFour" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <h6 class="jumbo-header">
+               Do you account for competition level?
+            </h6>
+            <hr>
+          </div>
+          <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+            <p>
+              In a word, Yes.
+
+              It's obvious that each state and division will have different competition levels than others. That is what makes SEVA’s algorithm so special. 
+
+              We control and account for this by factoring in the state and high school division the player is competing in. 
+
+              Scoring 28 PPG in 4A Utah is not equal to scoring 28 PPG in California Division 1 -- we know this. This is something that we have ironed out and worked on over our five years of actively evaluating players and taking into account 10+ years of data.
+            </p>
+          </div>
+        </div>
+        <div class="center top-sm">
+          <%= link_to "See More", "#", class: "underline" %>
+        </div>
+      </div><!-- offset-md-10 -->
+    </div><!-- col-md -->
+  </div><!-- row -->
+
+
+
+  <div class="center top">
+    <h5 class="jumbo-header">Simple Pricing</h5>
+  </div>
+  <div class="row top-sm">
+    <div class="col-md-4 offset-md-4">
+      <div class="card" style="box-shadow: rgba(29,29,31,0.07) 0 10px 60px;">
+        <div class="card-header center">
+          <h1 class="jumbo-header card-title">$59<span style="font-size: 18px;">/m</span></h1>
+          <h6>Billed Annually</h6>
+        </div>
+        <div class="card-block">
+          
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Unlimited Access to 5K+ Players</li>
+          <li class="list-group-item">4 Quarterly Lists.</li>
+          <li class="list-group-item">5 Users/School</li>
+          <li class="list-group-item">24/7 Customer Support</li>
+          <li class="list-group-item">Cancel Anytime</li>
+        </ul>
+        <div class="card-block">
+          <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary btn-block" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- container -->
+<div class="top" style="width: 100%; padding: 50px 25px;">
+  <div class="row map" style="height: 300px;">
+    <div class="col-md-10 offset-md-1 center" style="padding-top: 75px;">
+      <h6 class="jumbo-header">Recruit Thousands of Players from all over the World</h6>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <input type="email" placeholder="you@yourschool.com" class="form-control" style="margin-top: 25px;" />
+        </div>
+      </duv>
+    </div>
+  </div>
+</div>
+
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="display: flex; justify-content: space-between; align-content: center;">
+        <div>
+        <h5 class="modal-title jumbo-header">Nick Martineau<span style="font-size: 12px; margin-left: 7px;">2007</span></h5>
+        <h6><small>5'11" | Davis High School, UT</small></h6>
+        </div>
+        <div class="center">
+          <h3>9.2</h3>
+          <h6>SEVA Score</h6>
+        </div>
+      </div>
+      <div class="modal-body">
+       <progress class="progress" value="9.2" max="10"></progress>
+       <progress class="progress" value="4" max="10"></progress>
+       <progress class="progress" value="3" max="10"></progress>
+       <progress class="progress" value="6" max="10"></progress>
+       <hr>
+       <table class="table">
+          <thead>
+            <tr>
+              <th colspan="2">SEVA Score</th>
+              <th>HT</th>
+              <th>YR</th>
+              <th>GP</th>
+              <th>PPG</th>
+              <th>APG</th>
+              <th>RPG</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th colspan="2">8.2</th>
+              <th>6'6"</th>
+              <th>JR</th>
+              <th>31.7</th>
+              <th>4.5</th>
+              <th>6.2</th>
+              <th>1.3</th>
+            </tr>
+            <tr>
+              <th colspan="2">8.2</th>
+              <th>6'6"</th>
+              <th>JR</th>
+              <th>31.7</th>
+              <th>4.5</th>
+              <th>6.2</th>
+              <th>1.3</th>
+            </tr>
+            <tr>
+              <th colspan="2">8.2</th>
+              <th>6'6"</th>
+              <th>JR</th>
+              <th>31.7</th>
+              <th>4.5</th>
+              <th>6.2</th>
+              <th>1.3</th>
+            </tr>
+            <tr>
+              <th colspan="2">8.2</th>
+              <th>6'6"</th>
+              <th>JR</th>
+              <th>31.7</th>
+              <th>4.5</th>
+              <th>6.2</th>
+              <th>1.3</th>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <progress class="progress" value="9.2" max="10"></progress>
+        <progress class="progress" value="4" max="10"></progress>
+        <progress class="progress" value="3" max="10"></progress>
+        <progress class="progress" value="6" max="10"></progress>
+        <progress class="progress" value="9.2" max="10"></progress>
+        <progress class="progress" value="4" max="10"></progress>
+        <progress class="progress" value="3" max="10"></progress>
+        <progress class="progress" value="6" max="10"></progress>
+        <hr>
+        <h6>Similar Players</h6>
+        <h6>Scholarship Offers</h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Get SEVA Now</button>
+      </div>
+    </div>
+  </div>
+</div>

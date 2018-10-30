@@ -1,0 +1,44 @@
+<div class="modal hide fade in out" id="sign-up-modal">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <span aria-hidden="true">&times;</span>
+	      </button>
+	      <h4 class="modal-title">SIGN UP</h4>
+	    </div>
+	    <div class="modal-body">
+	       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "row"}) do |f| %>
+	          <%= devise_error_messages! %>
+	            <div class="form-group col-xs-6">
+	              <%= f.text_field :first_name, class: 'form-control sign-up', placeholder: "First Name", required: true %>
+	              <%= f.label :first_name %>
+	            </div>
+	            <div class="form-group col-xs-6">
+	              <%= f.text_field :last_name, class: 'form-control sign-up', placeholder: "Last Name", required: true %>
+	              <%= f.label :last_name %>
+	            </div>
+	            <div class="form-group col-xs-12">
+	              <%= f.text_field :email, class: 'form-control sign-up', placeholder: "Email", required: true %>
+	              <%= f.label :email %>
+	            </div>
+	            <div class="form-group col-xs-12">
+	              <%= f.password_field :password, class: 'form-control sign-up', placeholder: "Password", required: true %>
+	              <%= f.label :password %>
+	            </div>
+	            <div class="form-group col-xs-12">
+	              <%= f.password_field :password_confirmation, class: 'form-control sign-up', placeholder: "Password Confirmation", required: true %>
+	              <%= f.label :password_confirmation %>
+	            </div>
+	          
+	            <div class="form-group col-xs-12">
+	              <div class="pull-xs-right">
+	                <%= f.submit class: "btn btn-primary" %>
+	              </div>
+	            </div><!-- submit btn -->
+	            <p class="form-group col-xs-12"><small>By signing up you agree to our <%= link_to "Terms", terms_path %> and <%= link_to "Privacy Policy.", privacy_path %></small></p>
+	        <% end %>
+	    </div>
+	  </div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- modal -->

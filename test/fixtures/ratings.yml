@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seva_score: 1.5
+  espn: 1
+  scout: 1
+  rivals: 1
+
+two:
+  seva_score: 1.5
+  espn: 1
+  scout: 1
+  rivals: 1
