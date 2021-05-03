@@ -11,7 +11,7 @@
 ## 🌱 Technologies and Frameworks
 <p>
     <!-- HTML5 -->
-    <img src="https://img.shields.io/badge/HTML5-e34f26?flat=plastic&logo=html5&logoColor=black" height="32" alt="HTML5" />
+    <img src="https://img.shields.io/badge/HTML5-e34f26?flat=plastic&logo=html5&logoColor=white" height="32" alt="HTML5" />
     &nbsp;
     <!-- CSS3 -->
     <img src="https://img.shields.io/badge/CSS3-1572b6?flat=plastic&logo=css3&logoColor=white" height="32" alt="CSS3" />
