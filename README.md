@@ -11,12 +11,12 @@
 ## 🌱 Technologies and Frameworks
 <p>
     <!-- HTML5 -->
-    <img src="https://img.shields.io/badge/HTML5-61dafb?flat=plastic&logo=html5&logoColor=black" height="32" alt="HTML5" />
+    <img src="https://img.shields.io/badge/HTML5-e34f26?flat=plastic&logo=html5&logoColor=black" height="32" alt="HTML5" />
     &nbsp;
     <!-- CSS3 -->
-    <img src="https://img.shields.io/badge/CSS3-764abc?flat=plastic&logo=css3&logoColor=white" height="32" alt="CSS3" />
+    <img src="https://img.shields.io/badge/CSS3-1572b6?flat=plastic&logo=css3&logoColor=white" height="32" alt="CSS3" />
     &nbsp;
     <!-- Ruby on Rails -->
-    <img src="https://img.shields.io/badge/Redux%20Saga-999999?flat=plastic&logo=redux-saga&logoColor=white" height="32" alt="Redux-Saga" />
+    <img src="https://img.shields.io/badge/Ruby%20on%20Rails-cc0000?flat=plastic&logo=ruby%20on%20rails&logoColor=white" height="32" alt="Ruby on Rails" />
     &nbsp;
 </p>
