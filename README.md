@@ -19,7 +19,13 @@
     <!-- JavaScript -->
     <img src="https://img.shields.io/badge/JavaScript-f7df1e?flat=plastic&logo=javascript&logoColor=black" height="32" alt="JavaScript" />
     &nbsp;
+    <!-- CoffeeScript -->
+    <img src="https://img.shields.io/badge/CoffeeScript-2f2625?flat=plastic&logo=coffeescript&logoColor=white" height="32" alt="CoffeeScript" />
+    &nbsp;
     <!-- Ruby on Rails -->
     <img src="https://img.shields.io/badge/Ruby%20on%20Rails-cc0000?flat=plastic&logo=ruby%20on%20rails&logoColor=white" height="32" alt="Ruby on Rails" />
+    &nbsp;
+    <!-- Ruby -->
+    <img src="https://img.shields.io/badge/Ruby-cc342d?flat=plastic&logo=ruby&logoColor=white" height="32" alt="Ruby" />
     &nbsp;
 </p>
