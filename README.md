@@ -28,4 +28,7 @@
     <!-- Ruby -->
     <img src="https://img.shields.io/badge/Ruby-cc342d?flat=plastic&logo=ruby&logoColor=white" height="32" alt="Ruby" />
     &nbsp;
+    <!-- Node.js -->
+    <img src="https://img.shields.io/badge/Node.js-339933?flat=plastic&logo=node-dot-js&logoColor=white" height="32" alt="Node.js" />
+    &nbsp;
 </p>
