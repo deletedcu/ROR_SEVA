@@ -31,4 +31,7 @@
     <!-- Node.js -->
     <img src="https://img.shields.io/badge/Node.js-339933?flat=plastic&logo=node-dot-js&logoColor=white" height="32" alt="Node.js" />
     &nbsp;
+    <!-- npm -->
+    <img src="https://img.shields.io/badge/npm-cb3837?flat=plastic&logo=npm&logoColor=white" height="32" alt="npm" />
+    &nbsp;
 </p>
